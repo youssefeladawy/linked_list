@@ -20,4 +20,8 @@ Linked list implementation done by ruby
 
 #find(value) returns the index of the node containing value, or nil if not found.  
 
-#to_s represent your LinkedList objects as strings
+#to_s represent your LinkedList objects as strings  
+
+#insert_at(value, index) that inserts a new node with the provided value at the given index.  
+
+#remove_at(index) that removes the node at the given index.  

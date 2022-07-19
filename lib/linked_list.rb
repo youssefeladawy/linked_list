@@ -102,4 +102,28 @@ class LinkedList
     end
     print 'nil '
   end
+  
+  def insert_at(value, index)
+    if index >= size
+      puts 'Index is out of reach'
+    elsif index == 0
+      prepend(value)
+    else
+      current_node = at(index)
+      tmp = current_node.clone
+      current_node.value = value
+      current_node.next_node = tmp
+    end
+  end
+
+  def remove_at(index)
+    if index >= size
+      puts 'Index is out of reach'
+    elsif index == 0
+      @head = at(1)
+    else
+      current_node = at(index - 1)
+      current_node.next_node = at(index + 1)
+    end
+  end
 end

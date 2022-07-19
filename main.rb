@@ -37,3 +37,12 @@ p '----------------------------'
 list.pop
 puts list
 p '----------------------------'
+# list.insert_at(nil, 10)
+list.insert_at('0', 0)
+list.insert_at('D', 4)
+list.insert_at('K', 10)
+puts list
+p '----------------------------'
+list.remove_at(0)
+list.remove_at(4)
+puts list
