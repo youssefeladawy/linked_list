@@ -1,4 +1,5 @@
 require_relative 'node'
+require 'pry-byebug'
 
 class LinkedList
   attr_reader :head, :tail
@@ -50,38 +51,55 @@ class LinkedList
 
   def at(index)
     counter = 0
+    found = false
     current_node = @head
     until current_node.nil?
       # return "#{current_node}: #{current_node.value}" if counter == index
-      return current_node if counter == index
+      if counter == index
+        found = true
+        return current_node
+      end
 
       current_node = current_node.next_node
       counter += 1
     end
+    return 'There is no node with this index' if found == false
+  end
+
+  def pop
+    if size <= 1
+      @head, @tail = nil, nil
+    else
+      pre_tail = at(size - 2)
+      pre_tail.next_node = nil
+      @tail = nil
+      @tail = pre_tail
+    end
+  end
+
+  def contains?(value, head = @head)
+    return false if head.nil?
+    return true if value == head.value
+
+    contains?(value, head.next_node)
   end
   
+  def find(value)
+    index = 0
+    current_node = @head
+    until current_node.nil?
+      return "index of #{value} is #{index}" if value == current_node.value
+
+      current_node = current_node.next_node
+      index += 1
+    end
+    nil
+  end
+
+  def to_s
+    size.times do |i|
+      print "( #{at(i).value} ) -> "
+    end
+    print 'nil '
+  end
 end
-
-
-list = LinkedList.new
-
-list.append('X')
-list.prepend('C')
-list.prepend('B')
-list.prepend('A')
-list.append('Y')
-list.append('Z')
-
-p list
-puts list.size
-puts list.length
-puts "Node head is #{list.head} & its value is #{list.head.value}"
-puts "Node tail is #{list.tail} & its value is #{list.tail.value}"
-
-puts list.at(0)
-puts list.at(1)
-puts list.at(2)
-puts list.at(3)
-puts list.at(4)
-puts list.at(5)
-puts list.at(5).value

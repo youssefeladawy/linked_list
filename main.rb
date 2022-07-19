@@ -10,13 +10,13 @@ list.append('Y')
 list.append('Z')
 
 p list
-
+p '----------------------------'
 puts list.size
 puts list.length
-
+p '----------------------------'
 puts "Node head is #{list.head} & its value is #{list.head.value}"
 puts "Node tail is #{list.tail} & its value is #{list.tail.value}"
-
+p '----------------------------'
 puts list.at(0)
 puts list.at(1)
 puts list.at(2)
@@ -24,3 +24,16 @@ puts list.at(3)
 puts list.at(4)
 puts list.at(5)
 puts list.at(5).value
+puts list.at(8)
+p '----------------------------'
+puts list.contains?('B')
+puts list.contains?('K')
+p '----------------------------'
+puts list.find('C')
+p list.find('K')
+p '----------------------------'
+puts list
+p '----------------------------'
+list.pop
+puts list
+p '----------------------------'

@@ -13,3 +13,11 @@ Linked list implementation done by ruby
 #tail returns the last node in the list  
 
 #at(index) returns the node at the given index  
+
+#pop removes the last element from the list  
+
+#contains?(value) returns true if the passed in value is in the list and otherwise returns false.  
+
+#find(value) returns the index of the node containing value, or nil if not found.  
+
+#to_s represent your LinkedList objects as strings
